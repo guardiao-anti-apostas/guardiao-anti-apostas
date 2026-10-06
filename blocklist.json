@@ -61,7 +61,8 @@
     "fortune-mouse.com",
     "slot88.com",
     "slot777.com",
-    "bet.br"
+    "bet.br",
+    "1whfxh.life"
   ],
   "padroes_wildcard": [
     "*://*.bet365.*/*",
@@ -104,6 +105,7 @@
     "*://*.bet.br/*",
     "*://*/*.bet.br/*",
     "*://*.casino/*",
-    "*://*.poker/*"
+    "*://*.poker/*",
+    "1whfxh.life"
   ]
 }
