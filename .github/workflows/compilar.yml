@@ -1,0 +1,35 @@
+name: Compilar Listas do Guardião
+
+on:
+  push:
+    paths:
+      - 'blocklist.json'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Gerar hosts.txt
+        run: |
+          echo "# Guardião Anti-Apostas - Ficheiro Hosts" > hosts.txt
+          echo "# Gerado automaticamente a partir do blocklist.json" >> hosts.txt
+          echo "# Última atualização: $(date)" >> hosts.txt
+          echo "" >> hosts.txt
+          
+          jq -r '.dominios[]' blocklist.json | while read -r domain; do
+            echo "127.0.0.1 $domain" >> hosts.txt
+            echo "127.0.0.1 www.$domain" >> hosts.txt
+          done
+
+      - name: Guardar e fazer Commit das alterações
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "automação: compilação automática do hosts.txt"
+          file_pattern: "hosts.txt"
