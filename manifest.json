@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Guardião Anti-Apostas",
+  "version": "1.0.0",
+  "description": "Bloqueador automático de sites de apostas e cassinos online.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "alarms",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
