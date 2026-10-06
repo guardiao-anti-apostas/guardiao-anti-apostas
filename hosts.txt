@@ -1,6 +1,6 @@
 # Guardião Anti-Apostas - Ficheiro Hosts
 # Gerado automaticamente a partir do blocklist.json
-# Última atualização: Tue Oct  6 12:53:05 UTC 2026
+# Última atualização: Tue Oct  6 12:55:03 UTC 2026
 
 127.0.0.1 bet365.com
 127.0.0.1 www.bet365.com
